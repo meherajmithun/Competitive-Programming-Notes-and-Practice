@@ -1,4 +1,9 @@
-// propert : 
+//some use of set in sub-proble
+//1 . new value add
+//2 . existing value  remove
+//3 . maximum or minimum
+
+// property : 
 // sorted but not unique
 
 #include<bits/stdc++.h>
@@ -27,7 +32,7 @@ int main(){
     //ms.erase(12); // If we use this then it removes all the occurence of the value . tc ->log.
     
     ms.erase(ms.find(12)); //If we use this then it removes the first occurence of the value beacuse of using the find which is returns a pointer.
-    
+
     for(auto it = ms.begin() ; it != ms.end() ;it++) cout<<*it<<" ";
 
 
