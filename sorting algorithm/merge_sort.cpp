@@ -1,18 +1,17 @@
-//let the array = {3,1,2,4,1,5,6,2,4};
-
 #include<bits/stdc++.h>
 using namespace std;
+
 void merge(vector<int>&v , int l , int h , int mid){
-    vector<int> v2;
-    int i = l , r = mid+1;
-    while(i <= mid and r <= h){
-        if(v[i] <= v[r]){
+    vector<int>v2;
+    int i = l , j = mid+1;
+    while(i <= mid and j <= h){
+        if(v[i] <= v[j]){
             v2.push_back(v[i]);
             i++;
         }
         else{
-            v2.push_back(v[r]);
-            r++;
+            v2.push_back(v[j]);
+            j++;
         }
     }
     if(i <= mid){
@@ -21,26 +20,28 @@ void merge(vector<int>&v , int l , int h , int mid){
             i++;
         }
     }
-    else if(r <= h){
-        v2.push_back(v[r]);
-        r++;
+    else if(j <= h){
+        while(j <= h){
+            v2.push_back(v[j]);
+            j++;
+        }
     }
-    for(int i = 0; i < v2.size(); i++){
+    for(int i = 0;  i < v2.size(); i++){
         v[l+i] = v2[i];
     }
 }
-
 void mergesort(vector<int> &v , int l , int h){
-    if(l == h) return;
-    int mid = (l+h)/2;
+    if(l == h) return ;
+    int mid = (l + h)/2;
     mergesort(v,l,mid);
-    mergesort(v,mid+1,h);
+    mergesort(v,mid+1, h);
     merge(v,l,h,mid);
 }
 
-int  main(){
-    vector<int> v = {3,1,2,4,1,5,6,2,4};
-    int l = 0 , r = v.size()-1;
-    mergesort(v,l,r);
-    for(auto u : v) cout<<u<<" ";
+int main(){
+    vector<int> v = {3,1,2,4,1,5,6,2,4,0};
+    int l = 0 , h = v.size()-1;
+    mergesort(v,l,h);
+    for(auto u :  v) cout<<u<<" ";
+    
 }
