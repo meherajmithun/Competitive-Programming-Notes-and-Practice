@@ -1,3 +1,5 @@
+///let the array = {3,1,2,4,1,5,6,2,4,0}
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -39,7 +41,7 @@ void mergesort(vector<int> &v , int l , int h){
 }
 
 int main(){
-    vector<int> v = {3,1,2,4,1,5,6,2,4,0};
+    vector<int> v = {3,1,2,4,1,5,6,2,4};
     int l = 0 , h = v.size()-1;
     mergesort(v,l,h);
     for(auto u :  v) cout<<u<<" ";
