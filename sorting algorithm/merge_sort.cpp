@@ -2,7 +2,6 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-
 void merge(vector<int>&v , int l , int h , int mid){
     vector<int>v2;
     int i = l , j = mid+1;
