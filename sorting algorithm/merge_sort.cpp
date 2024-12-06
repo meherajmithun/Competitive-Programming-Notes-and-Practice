@@ -1,22 +1,46 @@
+//let the array = {3,1,2,4,1,5,6,2,4};
+
 #include<bits/stdc++.h>
 using namespace std;
-const int mx = 1e9+123;
-vector<int>v(mx);
-
-void mergesort(int l , int r){
-    cout<<l<<" "<<r<<endl;
-    if(l == r) return;
-    int mid = (l+r)/2;
-    mergesort(l,mid);
-    //cout<<l<<" "<<r<<endl;
-    mergesort(mid+1,r);
-    //cout<<l<<" "<<r<<endl;
+void merge(vector<int>&v , int l , int h , int mid){
+    vector<int> v2;
+    int i = l , r = mid+1;
+    while(i <= mid and r <= h){
+        if(v[i] <= v[r]){
+            v2.push_back(v[i]);
+            i++;
+        }
+        else{
+            v2.push_back(v[r]);
+            r++;
+        }
+    }
+    if(i <= mid){
+        while(i <= mid){
+            v2.push_back(v[i]);
+            i++;
+        }
+    }
+    else if(r <= h){
+        v2.push_back(v[r]);
+        r++;
+    }
+    for(int i = 0; i < v2.size(); i++){
+        v[l+i] = v2[i];
+    }
 }
 
+void mergesort(vector<int> &v , int l , int h){
+    if(l == h) return;
+    int mid = (l+h)/2;
+    mergesort(v,l,mid);
+    mergesort(v,mid+1,h);
+    merge(v,l,h,mid);
+}
 
-int main(){
-    int n ; cin >> n;
-    for(int i  = 1;  i <= n; i++) cin >> v[i];
-
-    mergesort(1,n);
+int  main(){
+    vector<int> v = {3,1,2,4,1,5,6,2,4};
+    int l = 0 , r = v.size()-1;
+    mergesort(v,l,r);
+    for(auto u : v) cout<<u<<" ";
 }
