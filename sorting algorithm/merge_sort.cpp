@@ -45,5 +45,4 @@ int main(){
     int l = 0 , h = v.size()-1;
     mergesort(v,l,h);
     for(auto u :  v) cout<<u<<" ";
-    
 }
