@@ -1,0 +1,1 @@
+{"name":"Local: Range_update_Sum","url":"/home/meheraj/CP/learning topic/Segment_Tree/Range_update_Sum.cpp","tests":[{"id":1764916605502,"input":"5 6\n1 0 3 3\n2 1 2\n1 1 4 4\n2 1 3\n2 1 4\n2 3 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/meheraj/CP/learning topic/Segment_Tree/Range_update_Sum.cpp","group":"local","local":true}
